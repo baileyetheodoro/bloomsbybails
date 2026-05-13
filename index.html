@@ -7,470 +7,548 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+:root{
+  --pink:#d88497;
+  --soft-pink:#f7e4e8;
+  --peach:#efc2a7;
+  --butter:#f4d96b;
+  --sage:#cfd8bf;
+  --blue:#b7c7df;
+  --berry:#8f4f67;
+  --cream:#fffaf6;
+  --warm:#f8f1ea;
+  --text:#2c2520;
+  --muted:#6f645c;
 }
 
-body {
-  background: #fffaf6;
-  color: #2c2520;
-  font-family: "DM Sans", sans-serif;
-  overflow-x: hidden;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+body{
+  background:var(--cream);
+  color:var(--text);
+  font-family:"DM Sans", sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
 img,
-video {
-  width: 100%;
-  display: block;
+video{
+  width:100%;
+  display:block;
 }
 
 /* HEADER */
 
-.site-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-
-  padding: 18px 6%;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: rgba(255, 250, 246, 0.86);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(44, 37, 32, 0.08);
+.site-header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  padding:16px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,250,246,.78);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(44,37,32,.06);
 }
 
-.logo h1 {
-  font-family: "DM Serif Display", serif;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1;
+.logo h1{
+  font-family:"DM Serif Display", serif;
+  font-size:2.5rem;
+  line-height:.9;
+  font-weight:400;
+  letter-spacing:-.03em;
+  text-transform:lowercase;
 }
 
-.logo span {
-  display: block;
-  margin-top: 4px;
-
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-
-  color: #9b7767;
+.logo span{
+  display:block;
+  margin-top:6px;
+  font-size:.55rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--berry);
 }
 
-.desktop-nav {
-  display: flex;
-  gap: 24px;
+.desktop-nav{
+  display:flex;
+  gap:22px;
 }
 
-.desktop-nav a {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
+.desktop-nav a{
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  transition:.25s ease;
 }
 
-.desktop-nav a:hover {
-  color: #d8788c;
+.desktop-nav a:hover{
+  color:var(--pink);
 }
 
 /* MOBILE NAV */
 
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-
-  background: none;
-  border: none;
-  cursor: pointer;
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
 }
 
-.menu-toggle span {
-  width: 27px;
-  height: 2px;
-  background: #2c2520;
+.menu-toggle span{
+  width:27px;
+  height:2px;
+  background:var(--text);
 }
 
-.mobile-nav {
-  position: fixed;
-  top: 76px;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-
-  display: none;
-  flex-direction: column;
-
-  padding: 22px 6%;
-
-  background: #fffaf6;
-  border-bottom: 1px solid rgba(44, 37, 32, 0.08);
+.mobile-nav{
+  position:fixed;
+  top:74px;
+  left:0;
+  width:100%;
+  z-index:999;
+  display:none;
+  flex-direction:column;
+  padding:22px 6%;
+  background:var(--cream);
+  border-bottom:1px solid rgba(44,37,32,.08);
 }
 
-.mobile-nav.active {
-  display: flex;
+.mobile-nav.active{
+  display:flex;
 }
 
-.mobile-nav a {
-  padding: 13px 0;
-
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
+.mobile-nav a{
+  padding:13px 0;
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
 }
 
 /* HERO */
 
-.hero {
-  min-height: 100vh;
-  position: relative;
-  display: grid;
-  place-items: center;
-
-  padding: 140px 6% 90px;
-
-  text-align: center;
-  overflow: hidden;
-
-  background: #f8efe8;
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr .75fr;
+  align-items:end;
+  gap:40px;
+  padding:145px 6% 70px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at top left, var(--soft-pink) 0%, transparent 32%),
+    radial-gradient(circle at bottom right, var(--sage) 0%, transparent 28%),
+    var(--warm);
 }
 
-.hero-video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+.hero-video{
+  position:absolute;
+  inset:0;
+  z-index:0;
 }
 
-.hero-video video,
-.hero-video img {
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.36;
-  filter: blur(1.5px) saturate(0.92);
+.hero-video img{
+  height:100%;
+  object-fit:cover;
+  opacity:.36;
+  filter:blur(1px) saturate(.9);
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  background: rgba(255, 250, 246, 0.5);
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,250,246,.82) 0%,
+      rgba(255,250,246,.45) 50%,
+      rgba(255,250,246,.15) 100%
+    );
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 860px;
+.hero-content{
+  position:relative;
+  z-index:2;
+  align-self:center;
 }
 
-.eyebrow {
-  margin-bottom: 18px;
-
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-
-  color: #9b7767;
+.eyebrow{
+  margin-bottom:18px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--berry);
 }
 
-.hero h2 {
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(4rem, 9vw, 8rem);
-  font-weight: 400;
-  line-height: 0.9;
+.hero h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(4.4rem,10vw,9.5rem);
+  line-height:.82;
+  font-weight:400;
+  letter-spacing:-.045em;
+  text-transform:lowercase;
+  max-width:950px;
 }
 
-.hero-text {
-  max-width: 620px;
-  margin: 26px auto 34px;
-
-  font-size: 1rem;
-  line-height: 1.8;
-
-  color: #5f544b;
+.hero-text{
+  max-width:560px;
+  margin:28px 0 34px;
+  font-size:1rem;
+  line-height:1.8;
+  color:var(--muted);
 }
 
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
-.btn {
-  display: inline-block;
-  padding: 14px 24px;
-
-  border-radius: 999px;
-
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-
-  transition: 0.25s ease;
+.btn{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:999px;
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:.25s ease;
 }
 
-.btn-primary {
-  background: #d8788c;
-  color: #fff;
+.btn-primary{
+  background:var(--pink);
+  color:white;
 }
 
-.btn-primary:hover {
-  background: #c9677b;
-  transform: translateY(-2px);
+.btn-primary:hover{
+  background:var(--berry);
+  transform:translateY(-2px);
 }
 
-.btn-secondary {
-  border: 1px solid #2c2520;
-  color: #2c2520;
+.btn-secondary{
+  border:1px solid var(--text);
 }
 
-.btn-secondary:hover {
-  background: #2c2520;
-  color: #fff;
-  transform: translateY(-2px);
+.btn-secondary:hover{
+  background:var(--text);
+  color:white;
 }
 
 /* INTRO */
 
-.intro {
-  padding: 88px 8%;
-  text-align: center;
+.intro{
+  padding:95px 6% 75px;
 }
 
-.intro p {
-  max-width: 940px;
-  margin: auto;
-
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(2.2rem, 4.4vw, 4rem);
-  line-height: 1.05;
+.intro p{
+  max-width:1000px;
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(2.5rem,5vw,5rem);
+  line-height:.98;
+  letter-spacing:-.03em;
 }
 
-.fun-word {
-  color: #d8788c;
-  font-style: italic;
+.intro p:nth-child(2){
+  margin-left:auto;
+  max-width:760px;
+  margin-top:18px;
+  text-align:right;
 }
 
-/* FEATURE CARDS */
-
-.feature-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-
-  max-width: 1200px;
-  margin: 0 auto;
-
-  padding: 0 6% 95px;
+.fun-word{
+  color:var(--pink);
+  font-style:italic;
 }
 
-.feature-card {
-  background: #fff;
+/* FEATURES */
 
-  border: 1px solid #efe4d9;
-  border-radius: 30px;
-
-  overflow: hidden;
-
-  box-shadow: 0 12px 34px rgba(0,0,0,0.04);
-  transition: 0.25s ease;
+.feature-row{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:28px;
+  max-width:1250px;
+  margin:0 auto;
+  padding:0 6% 100px;
 }
 
-.feature-card:hover {
-  transform: translateY(-5px);
+.feature-card{
+  position:relative;
+  background:white;
+  border:1px solid #efe4d9;
+  border-radius:34px;
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,.05);
+  transition:.25s ease;
 }
 
-.feature-card img {
-  height: 360px;
-  object-fit: cover;
+.feature-card:hover{
+  transform:translateY(-5px);
 }
 
-.feature-content {
-  padding: 26px;
+.feature-card:first-child{
+  margin-top:50px;
 }
 
-.feature-content h3 {
-  margin-bottom: 10px;
-
-  font-family: "DM Serif Display", serif;
-  font-size: 2.3rem;
-  font-weight: 400;
+.feature-card img{
+  height:440px;
+  object-fit:cover;
 }
 
-.feature-content p {
-  margin-bottom: 18px;
-
-  line-height: 1.75;
-  color: #665a51;
+.feature-card:first-child img{
+  height:390px;
 }
 
-.feature-content a {
-  color: #d8788c;
+.feature-content{
+  padding:28px;
+}
 
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.feature-content h3{
+  margin-bottom:10px;
+  font-family:"DM Serif Display", serif;
+  font-size:2.7rem;
+  line-height:.95;
+  font-weight:400;
+}
+
+.feature-content p{
+  margin-bottom:18px;
+  line-height:1.75;
+  color:var(--muted);
+}
+
+.feature-content a{
+  color:var(--pink);
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.float-label{
+  position:absolute;
+  top:20px;
+  right:20px;
+  padding:9px 14px;
+  border-radius:999px;
+  background:var(--butter);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text);
 }
 
 /* CTA */
 
-.cta {
-  padding: 105px 6%;
-
-  text-align: center;
-
-  background: #fff0f2;
+.cta{
+  padding:115px 6%;
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:50px;
+  align-items:center;
+  background:
+    radial-gradient(circle at top right, var(--peach) 0%, transparent 32%),
+    var(--soft-pink);
 }
 
-.cta h2 {
-  margin-bottom: 20px;
-
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(3.4rem, 6vw, 6rem);
-  font-weight: 400;
-  line-height: 0.95;
+.cta-tag{
+  display:inline-block;
+  transform:rotate(4deg);
+  padding:14px 18px;
+  border-radius:999px;
+  background:white;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--berry);
 }
 
-.cta p {
-  max-width: 640px;
-  margin: 0 auto 30px;
+.cta h2{
+  margin-bottom:22px;
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(4rem,8vw,8rem);
+  line-height:.82;
+  font-weight:400;
+  letter-spacing:-.045em;
+  text-transform:lowercase;
+}
 
-  line-height: 1.8;
-  color: #665a51;
+.cta p{
+  max-width:610px;
+  margin-bottom:30px;
+  line-height:1.8;
+  color:var(--muted);
 }
 
 /* FOOTER */
 
-footer {
-  padding: 42px 6%;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: #fffaf6;
-  border-top: 1px solid rgba(44, 37, 32, 0.08);
+footer{
+  padding:42px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:var(--cream);
+  border-top:1px solid rgba(44,37,32,.08);
 }
 
-footer h3 {
-  font-family: "DM Serif Display", serif;
-  font-size: 2rem;
-  font-weight: 400;
+footer h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2.3rem;
+  font-weight:400;
+  letter-spacing:-.03em;
+  text-transform:lowercase;
 }
 
-footer p {
-  margin-top: 4px;
-
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-
-  color: #9b7767;
+footer p{
+  margin-top:4px;
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--berry);
 }
 
-.socials {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
+.socials{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
 }
 
-.socials a {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.socials a{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(44,37,32,.14);
+  border-radius:999px;
+  color:var(--text);
+  transition:.25s ease;
 }
 
-.socials a:hover {
-  color: #d8788c;
+.socials a:hover{
+  background:var(--pink);
+  color:white;
+  border-color:var(--pink);
+  transform:translateY(-2px);
+}
+
+.socials svg{
+  width:18px;
+  height:18px;
+  fill:currentColor;
 }
 
 /* RESPONSIVE */
 
-@media(max-width: 900px) {
-  .desktop-nav {
-    display: none;
+@media(max-width:950px){
+
+  .desktop-nav{
+    display:none;
   }
 
-  .menu-toggle {
-    display: flex;
+  .menu-toggle{
+    display:flex;
   }
 
-  .feature-row {
-    grid-template-columns: 1fr;
+  .hero{
+    grid-template-columns:1fr;
   }
 
-  footer {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
+  .feature-row,
+  .cta{
+    grid-template-columns:1fr;
   }
+
+  .feature-card:first-child{
+    margin-top:0;
+  }
+
+  .intro p:nth-child(2){
+    margin-left:0;
+    text-align:left;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+
 }
 
-@media(max-width: 600px) {
-  .site-header {
-    padding: 16px 5%;
+@media(max-width:600px){
+
+  .site-header{
+    padding:16px 5%;
   }
 
-  .logo h1 {
-    font-size: 1.65rem;
-  }
-
-  .logo span {
-    font-size: 0.52rem;
+  .logo h1{
+    font-size:1.85rem;
   }
 
   .hero,
   .intro,
   .feature-row,
-  .cta {
-    padding-left: 5%;
-    padding-right: 5%;
+  .cta{
+    padding-left:5%;
+    padding-right:5%;
   }
 
-  .hero h2 {
-    font-size: clamp(3.6rem, 18vw, 5.2rem);
+  .hero{
+    padding-top:125px;
+    padding-bottom:55px;
   }
 
-  .hero-buttons {
-    flex-direction: column;
+  .hero h2{
+    font-size:clamp(4rem,19vw,5.4rem);
   }
 
-  .btn {
-    width: 100%;
-    text-align: center;
+  .hero-buttons{
+    flex-direction:column;
   }
 
-  .feature-card img {
-    height: 300px;
+  .btn{
+    width:100%;
+    text-align:center;
   }
 
-  .socials {
-    justify-content: center;
+  .feature-card img,
+  .feature-card:first-child img{
+    height:310px;
   }
+
+  .socials{
+    justify-content:center;
+  }
+
 }
+
 </style>
 </head>
 
@@ -479,7 +557,7 @@ footer p {
 <header class="site-header">
 
   <a href="#" class="logo">
-    <h1>Blooms by Bails</h1>
+    <h1>blooms by bails</h1>
     <span>A Theodoro Collective Brand</span>
   </a>
 
@@ -487,12 +565,12 @@ footer p {
     <a href="#">Home</a>
     <a href="#">Our Story</a>
     <a href="#">Bloom Bars</a>
-    <a href="#">Florals</a>
+    <a href="#">Flowers</a>
     <a href="#">Build Your Blooms</a>
     <a href="#">Contact</a>
   </nav>
 
-  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+  <button class="menu-toggle" id="menuToggle">
     <span></span>
     <span></span>
     <span></span>
@@ -504,7 +582,7 @@ footer p {
   <a href="#">Home</a>
   <a href="#">Our Story</a>
   <a href="#">Bloom Bars</a>
-  <a href="#">Florals</a>
+  <a href="#">Flowers</a>
   <a href="#">Build Your Blooms</a>
   <a href="#">Contact</a>
 </nav>
@@ -512,31 +590,25 @@ footer p {
 <section class="hero">
 
   <div class="hero-video">
-
-    <!-- 
-      Replace YOUR-PEXELS-VIDEO-FILE.mp4 with a direct .mp4 video URL
-      or a downloaded video file path like: videos/hero-blooms.mp4
-    -->
-
-    <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=1600">
-      <source src="YOUR-PEXELS-VIDEO-FILE.mp4" type="video/mp4">
-    </video>
-
+    <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Flowers">
   </div>
 
   <div class="hero-content">
 
-    <p class="eyebrow">Florals • Bloom Bars • Gatherings</p>
+    <p class="eyebrow">
+      Florals • Bloom Bars • Custom Offerings
+    </p>
 
-    <h2>blooms that feel like you</h2>
+    <h2>
+      blooms for modern gatherings
+    </h2>
 
     <p class="hero-text">
-      Garden-inspired florals and styled bloom moments for showers, parties,
-      weddings, pop-ups, and all the sweet celebrations in between.
+      Thoughtfully styled florals for celebrations big and small.
     </p>
 
     <div class="hero-buttons">
-      <a href="#" class="btn btn-primary">Shop Florals</a>
+      <a href="#" class="btn btn-primary">Shop Flowers</a>
       <a href="#" class="btn btn-secondary">Build Your Blooms</a>
     </div>
 
@@ -547,8 +619,11 @@ footer p {
 <section class="intro">
 
   <p>
-    romantic flowers with a <span class="fun-word">soft, playful</span> feel —
-    made for celebrations that feel personal, warm, and beautifully styled.
+    flowers that don't feel <span class="fun-word">overdone</span>
+  </p>
+
+  <p>
+    thoughtfully created with you in mind.
   </p>
 
 </section>
@@ -557,9 +632,37 @@ footer p {
 
   <div class="feature-card">
 
-    <img src="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bloom bar floral setup">
+    <span class="float-label" style="background:var(--sage);">
+      by occasion
+    </span>
+
+    <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Flowers">
 
     <div class="feature-content">
+
+      <h3>Flowers</h3>
+
+      <p>
+        Styled arrangements, centerpieces, and floral details for showers,
+        weddings, parties, and gifting.
+      </p>
+
+      <a href="#">Shop Flowers</a>
+
+    </div>
+
+  </div>
+
+  <div class="feature-card">
+
+    <span class="float-label">
+      guest favorite
+    </span>
+
+    <img src="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bloom Bars">
+
+    <div class="feature-content">
+
       <h3>Bloom Bars</h3>
 
       <p>
@@ -567,23 +670,7 @@ footer p {
       </p>
 
       <a href="#">Explore Bloom Bars</a>
-    </div>
 
-  </div>
-
-  <div class="feature-card">
-
-    <!-- Replace this image with your direct styled florals image URL when ready -->
-    <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Styled floral arrangement">
-
-    <div class="feature-content">
-      <h3>Florals</h3>
-
-      <p>
-        Styled arrangements, event florals, centerpieces, and floral details by occasion.
-      </p>
-
-      <a href="#">Shop Florals</a>
     </div>
 
   </div>
@@ -592,41 +679,82 @@ footer p {
 
 <section class="cta">
 
-  <p class="eyebrow">Build Your Blooms</p>
+  <div>
+    <span class="cta-tag">
+      Build Your Blooms
+    </span>
+  </div>
 
-  <h2>not sure where to start?</h2>
+  <div>
 
-  <p>
-    Choose your event type, floral style, color palette, and package size to begin your custom bloom quote.
-  </p>
+    <h2>
+      let’s make something pretty
+    </h2>
 
-  <a href="#" class="btn btn-primary">Build Your Blooms</a>
+    <p>
+      Choose your event type, floral style, color palette,
+      and package size to begin your custom bloom quote.
+    </p>
+
+    <a href="#" class="btn btn-primary">
+      Start Building
+    </a>
+
+  </div>
 
 </section>
 
 <footer>
 
   <div>
-    <h3>Blooms by Bails</h3>
-    <p>A Theodoro Collective Brand</p>
+
+    <h3>blooms by bails</h3>
+
+    <p>
+      A Theodoro Collective Brand
+    </p>
+
   </div>
 
   <div class="socials">
-    <a href="#">TikTok</a>
-    <a href="#">Instagram</a>
-    <a href="#">Facebook</a>
-    <a href="#">Pinterest</a>
+
+    <a href="#" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M16.75 2c.25 2.16 1.47 3.8 3.57 4.42v3.12c-1.22-.04-2.35-.38-3.4-1.04v6.33c0 3.18-2.2 5.17-5.22 5.17-2.79 0-5.02-1.95-5.02-4.72 0-2.9 2.43-4.91 5.34-4.68v3.25c-1.24-.2-2.17.38-2.17 1.38 0 .91.73 1.5 1.7 1.5 1.08 0 1.76-.58 1.76-1.98V2h3.44z"/>
+      </svg>
+    </a>
+
+    <a href="#" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+      </svg>
+    </a>
+
+    <a href="#" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M14 8.5V6.75c0-.5.35-.75.85-.75H17V2h-3.1C10.93 2 9 3.77 9 6.5v2H6v4h3V22h4.2v-9.5H16l.65-4H13.2z"/>
+      </svg>
+    </a>
+
+    <a href="#" aria-label="Pinterest">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12.04 2C6.53 2 3 5.69 3 10.28c0 2.14 1.2 4.8 3.12 5.65.29.13.45.07.52-.2.05-.2.31-1.25.43-1.73.04-.16.02-.3-.11-.46-.63-.78-1.13-2.2-1.13-3.53 0-3.22 2.44-6.34 6.6-6.34 3.6 0 6.12 2.45 6.12 5.95 0 3.95-2 6.69-4.6 6.69-1.43 0-2.5-1.18-2.16-2.64.41-1.73 1.2-3.59 1.2-4.84 0-1.12-.6-2.05-1.84-2.05-1.46 0-2.64 1.51-2.64 3.54 0 1.29.44 2.16.44 2.16s-1.45 6.16-1.72 7.31c-.18.79-.11 1.9-.03 2.63.03.29.41.39.56.14.38-.63 1.02-1.72 1.22-2.5.15-.57.75-2.93.75-2.93.39.74 1.52 1.36 2.73 1.36 3.59 0 6.18-3.3 6.18-7.4C20.72 5.87 17.07 2 12.04 2z"/>
+      </svg>
+    </a>
+
   </div>
 
 </footer>
 
 <script>
+
 const menuToggle = document.getElementById("menuToggle");
 const mobileNav = document.getElementById("mobileNav");
 
 menuToggle.addEventListener("click", () => {
   mobileNav.classList.toggle("active");
 });
+
 </script>
 
 </body>
