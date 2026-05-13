@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blooms by Bails</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fffaf6;
+  color: #2c2520;
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img,
+video {
+  width: 100%;
+  display: block;
+}
+
+/* HEADER */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  padding: 18px 6%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 250, 246, 0.86);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(44, 37, 32, 0.08);
+}
+
+.logo h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.logo span {
+  display: block;
+  margin-top: 4px;
+
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: #9b7767;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.desktop-nav a {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.desktop-nav a:hover {
+  color: #d8788c;
+}
+
+/* MOBILE NAV */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 27px;
+  height: 2px;
+  background: #2c2520;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+
+  display: none;
+  flex-direction: column;
+
+  padding: 22px 6%;
+
+  background: #fffaf6;
+  border-bottom: 1px solid rgba(44, 37, 32, 0.08);
+}
+
+.mobile-nav.active {
+  display: flex;
+}
+
+.mobile-nav a {
+  padding: 13px 0;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  padding: 140px 6% 90px;
+
+  text-align: center;
+  overflow: hidden;
+
+  background: #f8efe8;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-video video,
+.hero-video img {
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.36;
+  filter: blur(1.5px) saturate(0.92);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: rgba(255, 250, 246, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+.eyebrow {
+  margin-bottom: 18px;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: #9b7767;
+}
+
+.hero h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.hero-text {
+  max-width: 620px;
+  margin: 26px auto 34px;
+
+  font-size: 1rem;
+  line-height: 1.8;
+
+  color: #5f544b;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+
+  border-radius: 999px;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  transition: 0.25s ease;
+}
+
+.btn-primary {
+  background: #d8788c;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #c9677b;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 1px solid #2c2520;
+  color: #2c2520;
+}
+
+.btn-secondary:hover {
+  background: #2c2520;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* INTRO */
+
+.intro {
+  padding: 88px 8%;
+  text-align: center;
+}
+
+.intro p {
+  max-width: 940px;
+  margin: auto;
+
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  line-height: 1.05;
+}
+
+.fun-word {
+  color: #d8788c;
+  font-style: italic;
+}
+
+/* FEATURE CARDS */
+
+.feature-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 0 6% 95px;
+}
+
+.feature-card {
+  background: #fff;
+
+  border: 1px solid #efe4d9;
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  box-shadow: 0 12px 34px rgba(0,0,0,0.04);
+  transition: 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card img {
+  height: 360px;
+  object-fit: cover;
+}
+
+.feature-content {
+  padding: 26px;
+}
+
+.feature-content h3 {
+  margin-bottom: 10px;
+
+  font-family: "DM Serif Display", serif;
+  font-size: 2.3rem;
+  font-weight: 400;
+}
+
+.feature-content p {
+  margin-bottom: 18px;
+
+  line-height: 1.75;
+  color: #665a51;
+}
+
+.feature-content a {
+  color: #d8788c;
+
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* CTA */
+
+.cta {
+  padding: 105px 6%;
+
+  text-align: center;
+
+  background: #fff0f2;
+}
+
+.cta h2 {
+  margin-bottom: 20px;
+
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(3.4rem, 6vw, 6rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.cta p {
+  max-width: 640px;
+  margin: 0 auto 30px;
+
+  line-height: 1.8;
+  color: #665a51;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 42px 6%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #fffaf6;
+  border-top: 1px solid rgba(44, 37, 32, 0.08);
+}
+
+footer h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+footer p {
+  margin-top: 4px;
+
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: #9b7767;
+}
+
+.socials {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.socials a:hover {
+  color: #d8788c;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+@media(max-width: 600px) {
+  .site-header {
+    padding: 16px 5%;
+  }
+
+  .logo h1 {
+    font-size: 1.65rem;
+  }
+
+  .logo span {
+    font-size: 0.52rem;
+  }
+
+  .hero,
+  .intro,
+  .feature-row,
+  .cta {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .hero h2 {
+    font-size: clamp(3.6rem, 18vw, 5.2rem);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .feature-card img {
+    height: 300px;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <a href="#" class="logo">
+    <h1>Blooms by Bails</h1>
+    <span>A Theodoro Collective Brand</span>
+  </a>
+
+  <nav class="desktop-nav">
+    <a href="#">Home</a>
+    <a href="#">Our Story</a>
+    <a href="#">Bloom Bars</a>
+    <a href="#">Florals</a>
+    <a href="#">Build Your Blooms</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#">Home</a>
+  <a href="#">Our Story</a>
+  <a href="#">Bloom Bars</a>
+  <a href="#">Florals</a>
+  <a href="#">Build Your Blooms</a>
+  <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+
+  <div class="hero-video">
+
+    <!-- 
+      Replace YOUR-PEXELS-VIDEO-FILE.mp4 with a direct .mp4 video URL
+      or a downloaded video file path like: videos/hero-blooms.mp4
+    -->
+
+    <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=1600">
+      <source src="YOUR-PEXELS-VIDEO-FILE.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+  <div class="hero-content">
+
+    <p class="eyebrow">Florals • Bloom Bars • Gatherings</p>
+
+    <h2>blooms that feel like you</h2>
+
+    <p class="hero-text">
+      Garden-inspired florals and styled bloom moments for showers, parties,
+      weddings, pop-ups, and all the sweet celebrations in between.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-primary">Shop Florals</a>
+      <a href="#" class="btn btn-secondary">Build Your Blooms</a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="intro">
+
+  <p>
+    romantic flowers with a <span class="fun-word">soft, playful</span> feel —
+    made for celebrations that feel personal, warm, and beautifully styled.
+  </p>
+
+</section>
+
+<section class="feature-row">
+
+  <div class="feature-card">
+
+    <img src="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bloom bar floral setup">
+
+    <div class="feature-content">
+      <h3>Bloom Bars</h3>
+
+      <p>
+        Interactive floral bars where guests create their own bouquets to take home.
+      </p>
+
+      <a href="#">Explore Bloom Bars</a>
+    </div>
+
+  </div>
+
+  <div class="feature-card">
+
+    <!-- Replace this image with your direct styled florals image URL when ready -->
+    <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Styled floral arrangement">
+
+    <div class="feature-content">
+      <h3>Florals</h3>
+
+      <p>
+        Styled arrangements, event florals, centerpieces, and floral details by occasion.
+      </p>
+
+      <a href="#">Shop Florals</a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="cta">
+
+  <p class="eyebrow">Build Your Blooms</p>
+
+  <h2>not sure where to start?</h2>
+
+  <p>
+    Choose your event type, floral style, color palette, and package size to begin your custom bloom quote.
+  </p>
+
+  <a href="#" class="btn btn-primary">Build Your Blooms</a>
+
+</section>
+
+<footer>
+
+  <div>
+    <h3>Blooms by Bails</h3>
+    <p>A Theodoro Collective Brand</p>
+  </div>
+
+  <div class="socials">
+    <a href="#">TikTok</a>
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="#">Pinterest</a>
+  </div>
+
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+menuToggle.addEventListener("click", () => {
+  mobileNav.classList.toggle("active");
+});
+</script>
+
+</body>
+</html>
