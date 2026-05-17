@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shop | Blooms by Bails</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#d88497;
+  --soft-pink:#f7e4e8;
+  --peach:#efc2a7;
+  --butter:#f4d96b;
+  --sage:#cfd8bf;
+  --berry:#8f4f67;
+  --cream:#fffaf6;
+  --warm:#f8f1ea;
+  --text:#2c2520;
+  --muted:#6f645c;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--cream);
+  color:var(--text);
+  font-family:"DM Sans", sans-serif;
+  overflow-x:hidden;
+}
+
+a{ text-decoration:none; color:inherit; }
+img{ width:100%; display:block; }
+
+/* HEADER */
+
+.site-header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  padding:16px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,250,246,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(44,37,32,.06);
+}
+
+.logo h1{
+  font-family:"DM Serif Display", serif;
+  font-size:2.3rem;
+  line-height:.9;
+  font-weight:400;
+  letter-spacing:-.03em;
+  text-transform:lowercase;
+}
+
+.logo span{
+  display:block;
+  margin-top:6px;
+  font-size:.55rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.desktop-nav{
+  display:flex;
+  gap:22px;
+}
+
+.desktop-nav a{
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active{ color:var(--pink); }
+
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:27px;
+  height:2px;
+  background:var(--text);
+}
+
+.mobile-nav{
+  position:fixed;
+  top:74px;
+  left:0;
+  width:100%;
+  display:none;
+  flex-direction:column;
+  padding:22px 6%;
+  background:var(--cream);
+  z-index:999;
+  border-bottom:1px solid rgba(44,37,32,.08);
+}
+
+.mobile-nav.active{ display:flex; }
+
+.mobile-nav a{
+  padding:12px 0;
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+/* HERO */
+
+.shop-hero{
+  padding:145px 6% 80px;
+  background:
+    radial-gradient(circle at top left, var(--soft-pink) 0%, transparent 34%),
+    radial-gradient(circle at bottom right, var(--sage) 0%, transparent 28%),
+    var(--warm);
+}
+
+.eyebrow{
+  margin-bottom:18px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.shop-hero h2{
+  max-width:950px;
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(4rem,10vw,8rem);
+  line-height:.84;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+}
+
+.shop-hero p{
+  max-width:620px;
+  margin-top:24px;
+  line-height:1.8;
+  color:var(--muted);
+}
+
+/* SHOP NAV */
+
+.shop-nav{
+  padding:34px 6%;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  border-bottom:1px solid rgba(44,37,32,.08);
+}
+
+.shop-nav a{
+  padding:12px 16px;
+  border:1px solid rgba(44,37,32,.12);
+  border-radius:999px;
+  background:white;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+
+.shop-nav a:hover{
+  background:var(--pink);
+  color:white;
+  border-color:var(--pink);
+}
+
+/* CATEGORY */
+
+.category{
+  padding:70px 6%;
+}
+
+.category:nth-of-type(even){
+  background:var(--warm);
+}
+
+.category-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:30px;
+}
+
+.category-header h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(3rem,6vw,5.5rem);
+  line-height:.85;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+}
+
+.category-header p{
+  max-width:520px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* PACKAGE CARDS */
+
+.package-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+.package-card{
+  background:white;
+  border-radius:26px;
+  overflow:hidden;
+  border:1px solid #eee2d7;
+  box-shadow:0 14px 34px rgba(0,0,0,.045);
+  transition:.25s ease;
+}
+
+.package-card:hover{ transform:translateY(-4px); }
+
+.package-img{
+  height:190px;
+  object-fit:cover;
+}
+
+.package-content{
+  padding:20px;
+}
+
+.package-tag{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:var(--soft-pink);
+  color:var(--berry);
+  font-size:.6rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.package-card:nth-child(2) .package-tag{
+  background:var(--butter);
+  color:var(--text);
+}
+
+.package-card:nth-child(3) .package-tag{
+  background:var(--sage);
+  color:var(--text);
+}
+
+.package-content h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2rem;
+  line-height:.95;
+  font-weight:400;
+  letter-spacing:-.03em;
+  margin-bottom:10px;
+}
+
+.price{
+  margin-bottom:12px;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.package-content p{
+  color:var(--muted);
+  line-height:1.6;
+  margin-bottom:14px;
+  font-size:.9rem;
+}
+
+.package-list{
+  list-style:none;
+  margin-bottom:18px;
+}
+
+.package-list li{
+  padding:8px 0;
+  border-top:1px solid rgba(44,37,32,.08);
+  font-size:.82rem;
+  color:var(--muted);
+}
+
+.btn{
+  display:inline-block;
+  border:none;
+  cursor:pointer;
+  border-radius:999px;
+  padding:12px 18px;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:.25s ease;
+  font-family:"DM Sans", sans-serif;
+}
+
+.btn-primary{
+  background:var(--pink);
+  color:white;
+}
+
+.btn-primary:hover{
+  background:var(--berry);
+  transform:translateY(-2px);
+}
+
+.btn-secondary{
+  border:1px solid var(--text);
+  background:transparent;
+}
+
+.btn-secondary:hover{
+  background:var(--text);
+  color:white;
+}
+
+/* CUSTOM SECTION */
+
+.custom{
+  padding:95px 6%;
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:50px;
+  align-items:center;
+  background:
+    radial-gradient(circle at top right, var(--peach) 0%, transparent 30%),
+    var(--soft-pink);
+}
+
+.custom-tag{
+  display:inline-block;
+  transform:rotate(-3deg);
+  padding:14px 18px;
+  border-radius:999px;
+  background:white;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--berry);
+  margin-bottom:28px;
+}
+
+.custom h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(3.5rem,7vw,6.5rem);
+  line-height:.84;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+  margin-bottom:22px;
+}
+
+.custom p{
+  max-width:620px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+/* MODAL */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:3000;
+}
+
+.modal-overlay.active{ display:flex; }
+
+.modal{
+  width:100%;
+  max-width:640px;
+  background:white;
+  border-radius:34px;
+  padding:34px;
+  max-height:90vh;
+  overflow-y:auto;
+}
+
+.modal-top{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:start;
+  margin-bottom:28px;
+}
+
+.modal h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2.5rem;
+  line-height:.9;
+  font-weight:400;
+}
+
+.close-modal{
+  border:none;
+  background:none;
+  font-size:2rem;
+  cursor:pointer;
+  line-height:1;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.required{
+  color:#d25c74;
+  margin-left:4px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:16px;
+  border-radius:18px;
+  border:1px solid rgba(44,37,32,.12);
+  background:#fff;
+  font-family:"DM Sans", sans-serif;
+  font-size:.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--pink);
+  box-shadow:0 0 0 3px rgba(216,132,151,.16);
+}
+
+.form-group textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.checkbox-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.checkbox-option{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px;
+  border-radius:18px;
+  border:1px solid rgba(44,37,32,.08);
+  font-size:.9rem;
+}
+
+.form-actions{
+  margin-top:24px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+/* SUCCESS TOAST */
+
+.success-toast{
+  position:fixed;
+  left:50%;
+  bottom:28px;
+  transform:translateX(-50%) translateY(120px);
+  z-index:4000;
+  background:white;
+  color:var(--text);
+  border:1px solid rgba(44,37,32,.1);
+  border-radius:999px;
+  padding:16px 22px;
+  box-shadow:0 18px 40px rgba(0,0,0,.16);
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:0;
+  transition:.35s ease;
+}
+
+.success-toast.active{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* FOOTER */
+
+footer{
+  padding:42px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-top:1px solid rgba(44,37,32,.08);
+}
+
+footer h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2.2rem;
+  font-weight:400;
+  letter-spacing:-.03em;
+  text-transform:lowercase;
+}
+
+footer p{
+  margin-top:4px;
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.socials{
+  display:flex;
+  gap:14px;
+}
+
+.socials a{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(44,37,32,.14);
+  border-radius:999px;
+  transition:.25s ease;
+}
+
+.socials a:hover{
+  background:var(--pink);
+  border-color:var(--pink);
+}
+
+.socials svg{
+  width:18px;
+  height:18px;
+  fill:var(--text);
+}
+
+.socials a:hover svg{
+  fill:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+  .desktop-nav{ display:none; }
+  .menu-toggle{ display:flex; }
+
+  .category-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .package-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:16px;
+    scroll-snap-type:x mandatory;
+    padding-bottom:14px;
+  }
+
+  .package-card{
+    min-width:82%;
+    scroll-snap-align:start;
+  }
+
+  .custom{ display:block; }
+
+  footer{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+}
+
+@media(max-width:600px){
+
+  .site-header{ padding:16px 5%; }
+
+  .logo h1{ font-size:1.9rem; }
+
+  .shop-hero,
+  .shop-nav,
+  .category,
+  .custom{
+    padding-left:5%;
+    padding-right:5%;
+  }
+
+  .shop-hero{ padding-top:125px; }
+
+  .shop-hero h2{
+    font-size:clamp(4rem,18vw,5.4rem);
+  }
+
+  .package-card{ min-width:88%; }
+
+  .package-img{ height:210px; }
+
+  .checkbox-grid{ grid-template-columns:1fr; }
+
+  .success-toast{
+    width:90%;
+    text-align:center;
+    border-radius:24px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <a href="index.html" class="logo">
+    <h1>blooms by bails</h1>
+    <span>A Theodoro Collective Brand</span>
+  </a>
+
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="story.html">Our Story</a>
+    <a href="shop.html" class="active">Shop</a>
+    <a href="bloombars.html">Bloom Bars</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="story.html">Our Story</a>
+  <a href="shop.html">Shop</a>
+  <a href="bloombars.html">Bloom Bars</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="shop-hero">
+  <div>
+    <p class="eyebrow">Shop by occasion</p>
+
+    <h2>pick a package, then customize the details</h2>
+
+    <p>
+      Choose the type of event you’re planning, select the floral package that fits the moment,
+      then send an inquiry with your date, palette, and event details.
+    </p>
+  </div>
+</section>
+
+<section class="shop-nav">
+  <a href="#showers">Showers</a>
+  <a href="#weddings">Weddings</a>
+  <a href="#corporate">Corporate</a>
+  <a href="#custom">Custom</a>
+</section>
+
+<section class="category" id="showers">
+
+  <div class="category-header">
+    <h2>showers</h2>
+    <p>
+      Floral packages for baby showers, bridal showers, wedding showers, welcome tables, styled focal moments, and hosted celebrations.
+    </p>
+  </div>
+
+  <div class="package-grid">
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Simple shower floral package">
+
+      <div class="package-content">
+        <span class="package-tag">Simple & Sweet</span>
+        <h3>sweet & simple</h3>
+        <div class="price">starting at $245</div>
+
+        <p>
+          A smaller floral setup for intimate showers and styled tables.
+        </p>
+
+        <ul class="package-list">
+          <li>Floral coverage for up to 25 guests</li>
+          <li>Petite centerpiece or bud vase styling</li>
+          <li>Palette selection included</li>
+        </ul>
+
+        <button class="btn btn-primary open-modal" data-package="Sweet & Simple Shower Package" data-event="Shower">Select Package</button>
+      </div>
+    </article>
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/4503751/pexels-photo-4503751.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Signature shower floral package">
+
+      <div class="package-content">
+        <span class="package-tag">Shower Moment</span>
+        <h3>shower moment</h3>
+        <div class="price">starting at $595</div>
+
+        <p>
+          A fuller setup for medium showers, venue-hosted events, and styled focal moments.
+        </p>
+
+        <ul class="package-list">
+          <li>Floral coverage for up to 45 guests</li>
+          <li>Medium centerpiece styling</li>
+          <li>One focal floral moment included</li>
+        </ul>
+
+        <button class="btn btn-primary open-modal" data-package="Shower Moment Package" data-event="Shower">Select Package</button>
+      </div>
+    </article>
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Full shower floral setup">
+
+      <div class="package-content">
+        <span class="package-tag">Full Floral Setup</span>
+        <h3>full floral setup</h3>
+        <div class="price">starting at $1150</div>
+
+        <p>
+          A full floral setup for larger showers and statement event styling.
+        </p>
+
+        <ul class="package-list">
+          <li>Floral coverage for up to 75 guests</li>
+          <li>Large centerpiece styling</li>
+          <li>Multiple focal floral installations</li>
+        </ul>
+
+        <button class="btn btn-primary open-modal" data-package="Full Floral Shower Setup" data-event="Shower">Select Package</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="category" id="weddings">
+
+  <div class="category-header">
+    <h2>weddings</h2>
+    <p>
+      Smaller-scale wedding florals for ceremonies, receptions, welcome tables, signage, and styled floral details.
+    </p>
+  </div>
+
+  <div class="package-grid">
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Intimate wedding florals">
+
+      <div class="package-content">
+        <span class="package-tag">Intimate</span>
+        <h3>intimate florals</h3>
+        <div class="price">starting at $450</div>
+
+        <p>
+          A simple floral package for intimate weddings and smaller ceremony details.
+        </p>
+
+        <ul class="package-list">
+          <li>Floral coverage for small ceremonies</li>
+          <li>Welcome or signing table florals</li>
+          <li>Seasonal palette direction</li>
+        </ul>
+
+        <button class="btn btn-primary open-modal" data-package="Intimate Wedding Florals" data-event="Wedding">Select Package</button>
+      </div>
+    </article>
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/4503751/pexels-photo-4503751.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Signature wedding florals">
+
+      <div class="package-content">
+        <span class="package-tag">Signature</span>
+        <h3>wedding details</h3>
+        <div class="price">starting at $950</div>
+
+        <p>
+          Florals for key wedding spaces like welcome tables, bars, sweetheart tables, or reception details.
+        </p>
+
+        <ul class="package-list">
+          <li>Reception or ceremony floral styling</li>
+          <li>Custom color direction</li>
+          <li>Optional bud vase and table add-ons</li>
+        </ul>
+
+        <button class="btn btn-primary open-modal" data-package="Signature Wedding Details" data-event="Wedding">Select Package</button>
+      </div>
+    </article>
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Statement wedding florals">
+
+      <div class="package-content">
+        <span class="package-tag">Statement</span>
+        <h3>statement wedding</h3>
+        <div class="price">starting at $1800</div>
+
+        <p>
+          A larger floral setup for couples wanting more impact across ceremony or reception moments.
+        </p>
+
+        <ul class="package-list">
+          <li>Multiple styled floral moments</li>
+          <li>Statement focal arrangement or install</li>
+          <li>Setup and styling included</li>
+        </ul>
+
+        <button class="btn btn-primary open-modal" data-package="Statement Wedding Florals" data-event="Wedding">Select Package</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="category" id="corporate">
+
+  <div class="category-header">
+    <h2>corporate</h2>
+    <p>
+      Florals for offices, client gifting, pop-ups, brand events, and recurring business needs.
+    </p>
+  </div>
+
+  <div class="package-grid">
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="One-time corporate florals">
+
+      <div class="package-content">
+        <span class="package-tag">One-Time</span>
+        <h3>office blooms</h3>
+        <div class="price">starting at $125</div>
+
+        <p>
+          A one-time floral order for offices, client gifts, front desks, or small business moments.
+        </p>
+
+        <ul class="package-list">
+          <li>Single arrangement or small set</li>
+          <li>Seasonal blooms</li>
+          <li>Pickup or delivery available</li>
+        </ul>
+
+        <button class="btn btn-primary open-modal" data-package="One-Time Corporate Florals" data-event="Corporate">Select Package</button>
+      </div>
+    </article>
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/4503751/pexels-photo-4503751.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Corporate event florals">
+
+      <div class="package-content">
+        <span class="package-tag">Event</span>
+        <h3>brand moment</h3>
+        <div class="price">starting at $650</div>
+
+        <p>
+          Florals for pop-ups, launches, client events, office gatherings, and styled business activations.
+        </p>
+
+        <ul class="package-list">
+          <li>Medium or large floral setup</li>
+          <li>Palette aligned to brand or event</li>
+          <li>Optional setup and delivery</li>
+        </ul>
+
+        <button class="btn btn-primary open-modal" data-package="Corporate Event Florals" data-event="Corporate">Select Package</button>
+      </div>
+    </article>
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Recurring corporate florals">
+
+      <div class="package-content">
+        <span class="package-tag">Contract</span>
+        <h3>fresh on repeat</h3>
+        <div class="price">monthly pricing available</div>
+
+        <p>
+          Recurring florals for offices, lobbies, salons, boutiques, restaurants, or client-facing spaces.
+        </p>
+
+        <ul class="package-list">
+          <li>Weekly, biweekly, or monthly options</li>
+          <li>Rotating seasonal arrangements</li>
+          <li>Delivery and refresh schedule available</li>
+        </ul>
+
+        <button class="btn btn-primary open-modal" data-package="Recurring Corporate Floral Service" data-event="Corporate">Select Package</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="custom" id="custom">
+
+  <div>
+    <span class="custom-tag">Need something else?</span>
+  </div>
+
+  <div>
+    <h2>make it custom</h2>
+
+    <p>
+      Have a specific theme, event type, venue setup, or inspiration photo?
+      We can create a custom floral setup around your event.
+    </p>
+
+    <button class="btn btn-primary open-modal" data-package="Custom Floral Inquiry" data-event="">Start Custom Inquiry</button>
+  </div>
+
+</section>
+
+<div class="modal-overlay" id="modalOverlay">
+
+  <div class="modal">
+
+    <div class="modal-top">
+      <div>
+        <p class="eyebrow">Inquiry Form</p>
+        <h3 id="selectedPackageTitle">Package Name</h3>
+      </div>
+
+      <button class="close-modal" id="closeModal" type="button">×</button>
+    </div>
+
+    <form
+      action="https://docs.google.com/forms/d/e/1FAIpQLSeeHCtLf4AZrglL-hZGeDfard4u2e4F8ic-Z48bSt68en9ofw/formResponse"
+      method="POST"
+      target="hidden_iframe"
+      id="inquiryForm">
+
+      <input type="hidden" id="selectedPackageInput" name="entry.814739268">
+
+      <div class="form-group">
+        <label>Event Type <span class="required">*</span></label>
+        <select id="eventTypeSelect" name="entry.1737897591" required>
+          <option value="">Select your event</option>
+          <option value="Shower">Shower</option>
+          <option value="Wedding">Wedding</option>
+          <option value="Corporate">Corporate</option>
+          <option value="Other / Custom">Other / Custom</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Event Date <span class="required">*</span></label>
+        <input type="date" name="entry.692116950" required>
+      </div>
+
+      <div class="form-group">
+        <label>Estimated Guest Count <span class="required">*</span></label>
+        <input type="number" name="entry.1232384696" placeholder="Approximate guest count" required>
+      </div>
+
+      <div class="form-group">
+        <label>Venue or Location <span class="required">*</span></label>
+        <input type="text" name="entry.1793030765" placeholder="Venue, city, or general location" required>
+      </div>
+
+      <div class="form-group">
+        <label>Color Palette <span class="required">*</span></label>
+        <input type="text" name="entry.129447620" placeholder="blush + butter yellow, colorful, earthy neutrals, etc." required>
+      </div>
+
+      <div class="form-group">
+        <label>Name <span class="required">*</span></label>
+        <input type="text" name="entry.1835902185" placeholder="Your name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Email <span class="required">*</span></label>
+        <input type="email" name="entry.354437321" placeholder="Your email address" required>
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" name="entry.1092063568" placeholder="Optional phone number">
+      </div>
+
+      <div class="form-group">
+        <label>Pinterest / Inspiration Link</label>
+        <input type="url" name="entry.1228184766" placeholder="Pinterest board or inspiration link">
+      </div>
+
+      <div class="form-group">
+        <label>Add-ons</label>
+
+        <div class="checkbox-grid">
+          <label class="checkbox-option"><input type="checkbox" name="entry.1139799522" value="Extra Small Arrangement"> Extra Small Arrangement</label>
+          <label class="checkbox-option"><input type="checkbox" name="entry.1139799522" value="Extra Medium Arrangement"> Extra Medium Arrangement</label>
+          <label class="checkbox-option"><input type="checkbox" name="entry.1139799522" value="Extra Large Arrangement"> Extra Large Arrangement</label>
+          <label class="checkbox-option"><input type="checkbox" name="entry.1139799522" value="Extra Bud Vases"> Extra Bud Vases</label>
+          <label class="checkbox-option"><input type="checkbox" name="entry.1139799522" value="Sign Florals"> Sign Florals</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Additional Notes</label>
+        <textarea name="entry.473973836" placeholder="Anything else you'd like us to know?"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+        <button type="button" class="btn btn-secondary" id="keepShopping">Keep Shopping</button>
+      </div>
+
+    </form>
+
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  </div>
+
+</div>
+
+<div class="success-toast" id="successToast">
+  Inquiry submitted — we’ll be in touch soon.
+</div>
+
+<footer>
+
+  <div>
+    <h3>blooms by bails</h3>
+    <p>A Theodoro Collective Brand</p>
+  </div>
+
+  <div class="socials">
+
+    <a href="#" aria-label="TikTok">
+      <svg viewBox="0 0 24 24">
+        <path d="M16.75 2c.25 2.16 1.47 3.8 3.57 4.42v3.12c-1.22-.04-2.35-.38-3.4-1.04v6.33c0 3.18-2.2 5.17-5.22 5.17-2.79 0-5.02-1.95-5.02-4.72 0-2.9 2.43-4.91 5.34-4.68v3.25c-1.24-.2-2.17.38-2.17 1.38 0 .91.73 1.5 1.7 1.5 1.08 0 1.76-.58 1.76-1.98V2h3.44z"/>
+      </svg>
+    </a>
+
+    <a href="#" aria-label="Instagram">
+      <svg viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+      </svg>
+    </a>
+
+  </div>
+
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+menuToggle.addEventListener("click", () => {
+  mobileNav.classList.toggle("active");
+});
+
+const modalOverlay = document.getElementById("modalOverlay");
+const closeModal = document.getElementById("closeModal");
+const keepShopping = document.getElementById("keepShopping");
+const packageTitle = document.getElementById("selectedPackageTitle");
+const selectedPackageInput = document.getElementById("selectedPackageInput");
+const eventTypeSelect = document.getElementById("eventTypeSelect");
+const openButtons = document.querySelectorAll(".open-modal");
+const inquiryForm = document.getElementById("inquiryForm");
+const successToast = document.getElementById("successToast");
+
+openButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const selectedPackage = button.dataset.package;
+    const selectedEvent = button.dataset.event;
+
+    packageTitle.textContent = selectedPackage;
+    selectedPackageInput.value = selectedPackage;
+
+    if(selectedEvent){
+      eventTypeSelect.value = selectedEvent;
+    } else {
+      eventTypeSelect.value = "";
+    }
+
+    modalOverlay.classList.add("active");
+  });
+});
+
+closeModal.addEventListener("click", () => {
+  modalOverlay.classList.remove("active");
+});
+
+keepShopping.addEventListener("click", () => {
+  modalOverlay.classList.remove("active");
+});
+
+modalOverlay.addEventListener("click", (e) => {
+  if(e.target === modalOverlay){
+    modalOverlay.classList.remove("active");
+  }
+});
+
+inquiryForm.addEventListener("submit", () => {
+  setTimeout(() => {
+    inquiryForm.reset();
+    modalOverlay.classList.remove("active");
+
+    successToast.classList.add("active");
+
+    setTimeout(() => {
+      successToast.classList.remove("active");
+    }, 4200);
+  }, 900);
+});
+</script>
+
+</body>
+</html>
