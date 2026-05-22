@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Blooms by Bails | Modern Florals, Bloom Bars & Event Flowers</title>
-<meta name="description" content="Blooms by Bails creates modern floral packages, bloom bars, and custom event florals for showers, weddings, parties, and gatherings." />
+<title>blooms by bails | Modern Florals, Bloom Bars & Event Flowers</title>
+<meta name="description" content="blooms by bails creates modern floral packages, bloom bars, and custom event florals for showers, weddings, parties, and gatherings." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,7 +119,7 @@ body::before {
   letter-spacing:.05em;
   text-transform:uppercase;
   color:var(--rose);
-  margin-top:4px;
+  margin-top:8px;
 }
 .desktop-nav { display:flex; align-items:center; gap:4px; }
 .desktop-nav a {
@@ -367,7 +367,7 @@ section { position:relative; }
 
 /* INTRO */
 .intro {
-  padding:104px 5% 92px;
+  padding:82px 5% 72px;
   background:var(--warm-white);
   overflow:hidden;
 }
@@ -393,7 +393,7 @@ section { position:relative; }
 
 /* OFFERINGS */
 .offerings {
-  padding:100px 5%;
+  padding:76px 5%;
   background:var(--cream);
 }
 .offerings-header {
@@ -412,7 +412,7 @@ section { position:relative; }
 }
 .cards-grid {
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(2, 1fr);
   gap:18px;
 }
 .offer-card {
@@ -425,9 +425,24 @@ section { position:relative; }
   transition:transform .28s var(--ease-spring), box-shadow .28s;
 }
 .offer-card:hover { transform:translateY(-8px); box-shadow:var(--shadow); }
-.card-img-wrap { position:relative; height:290px; overflow:hidden; background:var(--oat); }
-.card-img-wrap img { height:100%; object-fit:cover; transition:transform .7s var(--ease-out); }
-.offer-card:hover img { transform:scale(1.055); }
+.card-img-wrap {
+  position:relative;
+  height:290px;
+  overflow:hidden;
+  background:linear-gradient(135deg, var(--warm-white), var(--oat));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+}
+.card-img-wrap img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  transition:transform .7s var(--ease-out);
+}
+.offer-card:hover img { transform:scale(1.025); }
 .card-chip {
   position:absolute;
   left:16px;
@@ -553,7 +568,7 @@ section { position:relative; }
 
 /* PROCESS */
 .process {
-  padding:88px 5%;
+  padding:70px 5%;
   background:var(--warm-white);
 }
 .inquiry-path {
@@ -631,7 +646,7 @@ section { position:relative; }
 
 /* CTA */
 .cta-section {
-  padding:100px 5%;
+  padding:76px 5%;
   background:var(--blush-soft);
   overflow:hidden;
 }
@@ -690,7 +705,7 @@ section { position:relative; }
 footer {
   background:var(--ink);
   color:var(--warm-white);
-  padding:42px 5% 28px;
+  padding:34px 5% 22px;
 }
 .footer-top {
   display:grid;
@@ -790,7 +805,7 @@ footer {
 @media(max-width:1060px) {
   .desktop-nav a { padding:8px 10px; }
   .cards-grid { grid-template-columns:1fr 1fr; }
-  .offer-card:nth-child(3) { grid-column:1 / -1; }
+  
   .inquiry-path { grid-template-columns:1fr; }
   .inquiry-steps { grid-template-columns:repeat(2, 1fr); }
   .inquiry-step::after { display:none; }
@@ -842,16 +857,17 @@ footer {
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" class="logo" aria-label="Blooms by Bails home">
-      <span class="logo-name">Blooms by Bails</span>
+    <a href="index.html" class="logo" aria-label="blooms by bails home">
+      <span class="logo-name">blooms by bails</span>
       <span class="logo-sub">A Theodoro Collective Brand</span>
     </a>
 
     <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="index.html#story">Our Story</a>
+      <a href="index.html">Home</a>
+      <a href="story.html">Our Story</a>
       <a href="shop.html">Shop</a>
-      <a href="bloom-bars.html">Bloom Bars</a>
-      <a href="custom.html">Custom</a>
+      <a href="bloom-bars.html">Bloom Bar</a>
+      <a href="contact.html">Contact</a>
       <a href="quote.html" class="nav-cta">Get a Quote</a>
     </nav>
 
@@ -863,10 +879,10 @@ footer {
 
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
   <a href="index.html">Home</a>
-  <a href="index.html#story">Our Story</a>
+  <a href="story.html">Our Story</a>
   <a href="shop.html">Shop</a>
-  <a href="bloom-bars.html">Bloom Bars</a>
-  <a href="custom.html">Custom Creations</a>
+  <a href="bloom-bars.html">Bloom Bar</a>
+  <a href="contact.html">Contact</a>
   <a href="quote.html">Get a Quote</a>
 </nav>
 
@@ -901,13 +917,13 @@ footer {
 
   <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-inner">
-      <span>Blooms by Bails</span><span class="dot">✿</span>
+      <span>blooms by bails</span><span class="dot">✿</span>
       <span>Floral Packages</span><span class="dot">✿</span>
       <span>Bloom Bars</span><span class="dot">✿</span>
       <span>Custom Creations</span><span class="dot">✿</span>
       <span>Thoughtfully Styled</span><span class="dot">✿</span>
       <span>Every Occasion</span><span class="dot">✿</span>
-      <span>Blooms by Bails</span><span class="dot">✿</span>
+      <span>blooms by bails</span><span class="dot">✿</span>
       <span>Floral Packages</span><span class="dot">✿</span>
       <span>Bloom Bars</span><span class="dot">✿</span>
       <span>Custom Creations</span><span class="dot">✿</span>
@@ -929,10 +945,10 @@ footer {
 
       <div class="intro-body">
         <p>
-          Blooms by Bails is for the host who wants flowers that feel intentional without feeling stuffy. The goal is simple: pretty, personality-filled florals that make your event feel finished.
+          blooms by bails is for the host who wants flowers that feel intentional without feeling stuffy. The goal is simple: pretty, personality-filled florals that make your event feel finished.
         </p>
         <p>
-          Choose a floral package, book a bloom bar, or request something custom for your colors, theme, and guest count.
+          Choose a floral package or book a bloom bar for a styled, easy event experience.
         </p>
         <div class="intro-actions">
           <a href="shop.html" class="btn btn-pink">View Offerings</a>
@@ -946,14 +962,14 @@ footer {
     <div class="offerings-header">
       <h2 class="section-headline reveal">what we<br><em>create</em></h2>
       <p class="offerings-subtext reveal reveal-delay-1">
-        Three simple paths make it easy to find what fits your gathering: ready-to-shop packages, guest-loved bloom bars, and custom floral styling.
+        Two simple paths make it easy to find what fits your gathering: ready-to-shop floral packages and guest-loved bloom bars.
       </p>
     </div>
 
     <div class="cards-grid">
       <article class="offer-card reveal">
         <div class="card-img-wrap">
-          <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Floral packages for events">
+          <img src="https://images.pexels.com/photos/20351329/pexels-photo-20351329.jpeg" alt="Floral packages for events">
           <div class="card-chip" style="background:var(--blush-soft);">by occasion</div>
         </div>
         <div class="card-body">
@@ -965,7 +981,7 @@ footer {
 
       <article class="offer-card reveal reveal-delay-1">
         <div class="card-img-wrap">
-          <img src="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Bloom bar setup with fresh flowers">
+          <img src="https://m.media-amazon.com/images/I/61MJyxiiiLL._AC_SL1500_.jpg" alt="Bloom bar setup with fresh flowers">
           <div class="card-chip" style="background:var(--butter-soft);">guest favorite</div>
         </div>
         <div class="card-body">
@@ -975,17 +991,7 @@ footer {
         </div>
       </article>
 
-      <article class="offer-card reveal reveal-delay-2">
-        <div class="card-img-wrap">
-          <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Custom floral design details">
-          <div class="card-chip" style="background:var(--powder-soft);">made for you</div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Custom<br>Creations</h3>
-          <p class="card-desc">Have a color palette, theme, or Pinterest board? We’ll translate it into florals that fit your day.</p>
-          <a href="custom.html" class="card-link">Start creating <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </article>
+      
     </div>
   </section>
 
@@ -1024,7 +1030,7 @@ footer {
         <div class="cta-pill label" style="background:var(--butter-soft);"><span>✿</span> Let’s make it pretty</div>
         <h2 class="cta-headline reveal">ready for<br>your <em>floral moment?</em></h2>
         <p class="cta-body reveal reveal-delay-1">
-          Shop by occasion, book a bloom bar, or send over a custom request. We’ll help you figure out what makes sense for your event.
+          Browse floral packages or book a bloom bar experience tailored to your event style.
         </p>
         <div class="cta-buttons reveal reveal-delay-2">
           <a href="shop.html" class="btn btn-dark">Explore Offerings</a>
@@ -1038,13 +1044,13 @@ footer {
 <footer>
   <div class="footer-top footer-minimal">
     <div class="footer-brand">
-      <div class="f-logo">Blooms by Bails</div>
+      <div class="f-logo">blooms by bails</div>
       <div class="f-sub">A Theodoro Collective Brand</div>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 Blooms by Bails · A Theodoro Collective Brand</p>
+    <p>© 2026 blooms by bails · A Theodoro Collective Brand</p>
     <div class="socials" aria-label="Social links">
       <a href="#" aria-label="TikTok">
         <svg viewBox="0 0 24 24"><path d="M16.75 2c.25 2.16 1.47 3.8 3.57 4.42v3.12c-1.22-.04-2.35-.38-3.4-1.04v6.33c0 3.18-2.2 5.17-5.22 5.17-2.79 0-5.02-1.95-5.02-4.72 0-2.9 2.43-4.91 5.34-4.68v3.25c-1.24-.2-2.17.38-2.17 1.38 0 .91.73 1.5 1.7 1.5 1.08 0 1.76-.58 1.76-1.98V2h3.44z"/></svg>
@@ -1055,7 +1061,7 @@ footer {
       <a href="#" aria-label="Facebook">
         <svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.25-1.5 1.55-1.5h1.65V4.9c-.29-.04-1.27-.13-2.42-.13-2.4 0-4.04 1.47-4.04 4.16V11H8v3h2.74v8h2.76z"/></svg>
       </a>
-      <a href="mailto:hello@bloomsbybails.com" aria-label="Email">
+      <a href="mailto:bloomsbybails@gmail.com" aria-label="Email">
         <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
       </a>
     </div>
