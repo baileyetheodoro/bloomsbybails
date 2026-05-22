@@ -1,0 +1,800 @@
+<!-- story.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Story | Blooms by Bails</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#d88497;
+  --soft-pink:#f7e4e8;
+  --peach:#efc2a7;
+  --butter:#f4d96b;
+  --sage:#cfd8bf;
+  --berry:#8f4f67;
+  --cream:#fffaf6;
+  --warm:#f8f1ea;
+  --text:#2c2520;
+  --muted:#6f645c;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--cream);
+  color:var(--text);
+  font-family:"DM Sans", sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+/* HEADER */
+
+.site-header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  padding:16px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,250,246,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(44,37,32,.06);
+}
+
+.logo h1{
+  font-family:"DM Serif Display", serif;
+  font-size:2.3rem;
+  line-height:.9;
+  font-weight:400;
+  letter-spacing:-.03em;
+  text-transform:lowercase;
+}
+
+.logo span{
+  display:block;
+  margin-top:6px;
+  font-size:.55rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.desktop-nav{
+  display:flex;
+  gap:22px;
+}
+
+.desktop-nav a{
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active{
+  color:var(--pink);
+}
+
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:27px;
+  height:2px;
+  background:var(--text);
+}
+
+.mobile-nav{
+  position:fixed;
+  top:74px;
+  left:0;
+  width:100%;
+  display:none;
+  flex-direction:column;
+  padding:22px 6%;
+  background:var(--cream);
+  z-index:999;
+  border-bottom:1px solid rgba(44,37,32,.08);
+}
+
+.mobile-nav.active{
+  display:flex;
+}
+
+.mobile-nav a{
+  padding:12px 0;
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+/* HERO */
+
+.hero{
+  padding:150px 6% 90px;
+  background:
+    radial-gradient(circle at top left, var(--soft-pink) 0%, transparent 34%),
+    radial-gradient(circle at bottom right, var(--sage) 0%, transparent 28%),
+    var(--warm);
+}
+
+.eyebrow{
+  margin-bottom:18px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.hero h2{
+  max-width:1100px;
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(4rem,10vw,8.5rem);
+  line-height:.84;
+  font-weight:400;
+  letter-spacing:-.05em;
+  text-transform:lowercase;
+}
+
+.hero p{
+  max-width:620px;
+  margin-top:28px;
+  line-height:1.8;
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+/* SPLIT SECTION */
+
+.split-section{
+  padding:90px 6%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
+}
+
+.split-image{
+  border-radius:34px;
+  overflow:hidden;
+}
+
+.split-image img{
+  height:650px;
+  object-fit:cover;
+}
+
+.split-copy h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(3.2rem,7vw,6rem);
+  line-height:.85;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+  margin-bottom:24px;
+}
+
+.split-copy p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:20px;
+  font-size:1rem;
+}
+
+/* VALUES */
+
+.values{
+  padding:90px 6%;
+  background:var(--warm);
+}
+
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:34px;
+}
+
+.section-header h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(3rem,6vw,5.5rem);
+  line-height:.85;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+}
+
+.section-header p{
+  max-width:520px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.value-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.value-card{
+  background:white;
+  border:1px solid #eee2d7;
+  border-radius:26px;
+  padding:24px;
+  box-shadow:0 14px 34px rgba(0,0,0,.045);
+}
+
+.value-tag{
+  display:inline-block;
+  margin-bottom:18px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:var(--soft-pink);
+  color:var(--berry);
+  font-size:.65rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.value-card:nth-child(2) .value-tag{
+  background:var(--butter);
+  color:var(--text);
+}
+
+.value-card:nth-child(3) .value-tag{
+  background:var(--sage);
+  color:var(--text);
+}
+
+.value-card h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2rem;
+  line-height:.95;
+  font-weight:400;
+  margin-bottom:14px;
+}
+
+.value-card p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* FOUNDER */
+
+.founder{
+  padding:95px 6%;
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:55px;
+  align-items:center;
+}
+
+.founder-image{
+  border-radius:34px;
+  overflow:hidden;
+}
+
+.founder-image img{
+  height:720px;
+  object-fit:cover;
+}
+
+.founder-copy h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(3.5rem,7vw,6.5rem);
+  line-height:.84;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+  margin-bottom:24px;
+}
+
+.founder-copy p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:22px;
+}
+
+.signature{
+  margin-top:32px;
+  font-family:"DM Serif Display", serif;
+  font-size:2rem;
+  color:var(--berry);
+}
+
+/* CTA */
+
+.cta{
+  padding:100px 6%;
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:50px;
+  align-items:center;
+  background:
+    radial-gradient(circle at top right, var(--peach) 0%, transparent 30%),
+    var(--soft-pink);
+}
+
+.cta-tag{
+  display:inline-block;
+  transform:rotate(-3deg);
+  padding:14px 18px;
+  border-radius:999px;
+  background:white;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--berry);
+  margin-bottom:28px;
+}
+
+.cta h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(3.5rem,7vw,6.5rem);
+  line-height:.84;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+  margin-bottom:24px;
+}
+
+.cta p{
+  max-width:620px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-bottom:30px;
+}
+
+.cta-buttons{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  border:none;
+  cursor:pointer;
+  border-radius:999px;
+  padding:13px 20px;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:.25s ease;
+  font-family:"DM Sans", sans-serif;
+}
+
+.btn-primary{
+  background:var(--pink);
+  color:white;
+}
+
+.btn-primary:hover{
+  background:var(--berry);
+  transform:translateY(-2px);
+}
+
+.btn-secondary{
+  border:1px solid var(--text);
+  background:transparent;
+}
+
+.btn-secondary:hover{
+  background:var(--text);
+  color:white;
+}
+
+/* FOOTER */
+
+footer{
+  padding:42px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-top:1px solid rgba(44,37,32,.08);
+}
+
+footer h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2.2rem;
+  font-weight:400;
+  letter-spacing:-.03em;
+  text-transform:lowercase;
+}
+
+footer p{
+  margin-top:4px;
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.socials{
+  display:flex;
+  gap:14px;
+}
+
+.socials a{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(44,37,32,.14);
+  border-radius:999px;
+  transition:.25s ease;
+}
+
+.socials a:hover{
+  background:var(--pink);
+  border-color:var(--pink);
+}
+
+.socials svg{
+  width:18px;
+  height:18px;
+  fill:var(--text);
+}
+
+.socials a:hover svg{
+  fill:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+  .desktop-nav{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:flex;
+  }
+
+  .split-section,
+  .founder,
+  .cta{
+    grid-template-columns:1fr;
+  }
+
+  .value-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .site-header{
+    padding:16px 5%;
+  }
+
+  .logo h1{
+    font-size:1.9rem;
+  }
+
+  .hero,
+  .split-section,
+  .values,
+  .founder,
+  .cta{
+    padding-left:5%;
+    padding-right:5%;
+  }
+
+  .hero{
+    padding-top:130px;
+  }
+
+  .hero h2{
+    font-size:clamp(4rem,18vw,5.6rem);
+  }
+
+  .split-image img,
+  .founder-image img{
+    height:500px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <a href="index.html" class="logo">
+    <h1>blooms by bails</h1>
+    <span>A Theodoro Collective Brand</span>
+  </a>
+
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="story.html" class="active">Our Story</a>
+    <a href="shop.html">Shop</a>
+    <a href="bloombars.html">Bloom Bars</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="story.html">Our Story</a>
+  <a href="shop.html">Shop</a>
+  <a href="bloombars.html">Bloom Bars</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+
+  <p class="eyebrow">Our Story</p>
+
+  <h2>florals designed to feel elevated, modern, and genuinely lived in</h2>
+
+  <p>
+    Blooms by Bails was created for the kind of gatherings people actually want to be at —
+    thoughtful celebrations, styled details, interactive moments, and florals that feel intentional without feeling overdone.
+  </p>
+
+</section>
+
+<section class="split-section">
+
+  <div class="split-image">
+    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1400&auto=format&fit=crop" alt="Editorial florals">
+  </div>
+
+  <div class="split-copy">
+
+    <p class="eyebrow">What We Create</p>
+
+    <h2>designed for modern hosting</h2>
+
+    <p>
+      From shower florals and bloom bars to styled tables and custom event moments, the focus is always the same:
+      creating florals that photograph beautifully while still feeling approachable and personal.
+    </p>
+
+    <p>
+      We’re drawn to layered color palettes, soft movement, seasonal textures, and setups that feel polished without looking too perfect.
+    </p>
+
+    <p>
+      The goal isn’t to create something overly traditional or overly trendy —
+      it’s to create something people remember being around.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="values">
+
+  <div class="section-header">
+
+    <h2>the approach</h2>
+
+    <p>
+      Everything is built around creating floral moments that feel current, intentional, and easy to gather around.
+    </p>
+
+  </div>
+
+  <div class="value-grid">
+
+    <div class="value-card">
+
+      <span class="value-tag">01</span>
+
+      <h3>modern palettes</h3>
+
+      <p>
+        Thoughtful color stories inspired by fashion, interiors, hosting, and seasonal florals — not just standard event colors.
+      </p>
+
+    </div>
+
+    <div class="value-card">
+
+      <span class="value-tag">02</span>
+
+      <h3>gathering first</h3>
+
+      <p>
+        Every setup is designed around how people actually move through and experience an event, not just how it photographs.
+      </p>
+
+    </div>
+
+    <div class="value-card">
+
+      <span class="value-tag">03</span>
+
+      <h3>details that matter</h3>
+
+      <p>
+        From ribbon choices to stem movement and styling placement, the small details shape the overall feeling of the event.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="founder">
+
+  <div class="founder-image">
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1400&auto=format&fit=crop" alt="Founder">
+  </div>
+
+  <div class="founder-copy">
+
+    <p class="eyebrow">Founder</p>
+
+    <h2>built from a love of hosting, styling, and florals</h2>
+
+    <p>
+      Blooms by Bails started from the idea that florals should feel integrated into the event itself —
+      not like something added at the very end.
+    </p>
+
+    <p>
+      What began as designing arrangements for personal gatherings quickly evolved into a larger creative outlet centered around flowers, hosting, and curated experiences.
+    </p>
+
+    <p>
+      Today, the brand focuses on creating floral moments that feel elevated but still warm, inviting, and fun to be around.
+    </p>
+
+    <div class="signature">— Bailey</div>
+
+  </div>
+
+</section>
+
+<section class="cta">
+
+  <div>
+    <span class="cta-tag">Ready to plan something?</span>
+  </div>
+
+  <div>
+
+    <h2>let’s make something beautiful together</h2>
+
+    <p>
+      Explore floral packages, inquire about bloom bars, or reach out with a custom event idea.
+    </p>
+
+    <div class="cta-buttons">
+
+      <a href="shop.html" class="btn btn-primary">
+        Shop Florals
+      </a>
+
+      <a href="bloombars.html" class="btn btn-secondary">
+        Bloom Bars
+      </a>
+
+      <a href="contact.html" class="btn btn-secondary">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <div>
+    <h3>blooms by bails</h3>
+    <p>A Theodoro Collective Brand</p>
+  </div>
+
+  <div class="socials">
+
+    <a href="#" aria-label="TikTok">
+      <svg viewBox="0 0 24 24">
+        <path d="M16.75 2c.25 2.16 1.47 3.8 3.57 4.42v3.12c-1.22-.04-2.35-.38-3.4-1.04v6.33c0 3.18-2.2 5.17-5.22 5.17-2.79 0-5.02-1.95-5.02-4.72 0-2.9 2.43-4.91 5.34-4.68v3.25c-1.24-.2-2.17.38-2.17 1.38 0 .91.73 1.5 1.7 1.5 1.08 0 1.76-.58 1.76-1.98V2h3.44z"/>
+      </svg>
+    </a>
+
+    <a href="#" aria-label="Instagram">
+      <svg viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+      </svg>
+    </a>
+
+    <a href="#" aria-label="Facebook">
+      <svg viewBox="0 0 24 24">
+        <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.24-1.46 1.49-1.46H16.7V4.96c-.31-.04-1.37-.12-2.6-.12-2.57 0-4.33 1.57-4.33 4.45V11H7v3h2.77v8h3.73z"/>
+      </svg>
+    </a>
+
+    <a href="mailto:youremail@email.com" aria-label="Email">
+      <svg viewBox="0 0 24 24">
+        <path d="M2 5h20v14H2V5zm10 7L4 7v10h16V7l-8 5zm8-7H4l8 5 8-5z"/>
+      </svg>
+    </a>
+
+  </div>
+
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+menuToggle.addEventListener("click", () => {
+  mobileNav.classList.toggle("active");
+});
+</script>
+
+</body>
+</html>
