@@ -1,0 +1,1078 @@
+<!-- bloombars.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bloom Bars | Blooms by Bails</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#d88497;
+  --soft-pink:#f7e4e8;
+  --peach:#efc2a7;
+  --butter:#f4d96b;
+  --sage:#cfd8bf;
+  --berry:#8f4f67;
+  --cream:#fffaf6;
+  --warm:#f8f1ea;
+  --text:#2c2520;
+  --muted:#6f645c;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--cream);
+  color:var(--text);
+  font-family:"DM Sans", sans-serif;
+  overflow-x:hidden;
+}
+
+a{ text-decoration:none; color:inherit; }
+img{ width:100%; display:block; }
+
+.site-header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  padding:16px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,250,246,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(44,37,32,.06);
+}
+
+.logo h1{
+  font-family:"DM Serif Display", serif;
+  font-size:2.3rem;
+  line-height:.9;
+  font-weight:400;
+  letter-spacing:-.03em;
+  text-transform:lowercase;
+}
+
+.logo span{
+  display:block;
+  margin-top:6px;
+  font-size:.55rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.desktop-nav{
+  display:flex;
+  gap:22px;
+}
+
+.desktop-nav a{
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active{ color:var(--pink); }
+
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:27px;
+  height:2px;
+  background:var(--text);
+}
+
+.mobile-nav{
+  position:fixed;
+  top:74px;
+  left:0;
+  width:100%;
+  display:none;
+  flex-direction:column;
+  padding:22px 6%;
+  background:var(--cream);
+  z-index:999;
+  border-bottom:1px solid rgba(44,37,32,.08);
+}
+
+.mobile-nav.active{ display:flex; }
+
+.mobile-nav a{
+  padding:12px 0;
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+/* HERO */
+
+.hero{
+  padding:145px 6% 80px;
+  display:grid;
+  grid-template-columns:1fr .75fr;
+  gap:50px;
+  align-items:end;
+  background:
+    radial-gradient(circle at top left, var(--soft-pink) 0%, transparent 34%),
+    radial-gradient(circle at bottom right, var(--sage) 0%, transparent 28%),
+    var(--warm);
+}
+
+.eyebrow{
+  margin-bottom:18px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.hero h2{
+  max-width:950px;
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(4rem,10vw,8rem);
+  line-height:.84;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+}
+
+.hero p{
+  max-width:620px;
+  margin-top:24px;
+  line-height:1.8;
+  color:var(--muted);
+}
+
+.hero-card{
+  background:rgba(255,255,255,.68);
+  border:1px solid rgba(44,37,32,.08);
+  border-radius:34px;
+  padding:30px;
+  transform:rotate(-2deg);
+}
+
+.hero-card h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2.35rem;
+  line-height:.95;
+  font-weight:400;
+  margin-bottom:14px;
+}
+
+/* HOW IT WORKS */
+
+.steps{
+  padding:80px 6%;
+}
+
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:34px;
+}
+
+.section-header h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(3rem,6vw,5.5rem);
+  line-height:.85;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+}
+
+.section-header p{
+  max-width:520px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.step-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.step-card{
+  background:white;
+  border:1px solid #eee2d7;
+  border-radius:26px;
+  padding:24px;
+  box-shadow:0 14px 34px rgba(0,0,0,.045);
+}
+
+.step-number{
+  display:inline-block;
+  margin-bottom:18px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:var(--soft-pink);
+  color:var(--berry);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.step-card h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2rem;
+  font-weight:400;
+  line-height:.95;
+  margin-bottom:12px;
+}
+
+.step-card p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* PACKAGES */
+
+.packages{
+  padding:80px 6%;
+  background:var(--warm);
+}
+
+.package-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+.package-card{
+  background:white;
+  border-radius:26px;
+  overflow:hidden;
+  border:1px solid #eee2d7;
+  box-shadow:0 14px 34px rgba(0,0,0,.045);
+  transition:.25s ease;
+}
+
+.package-card:hover{ transform:translateY(-4px); }
+
+.package-img{
+  height:190px;
+  object-fit:cover;
+}
+
+.package-content{
+  padding:20px;
+}
+
+.package-tag{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:var(--soft-pink);
+  color:var(--berry);
+  font-size:.6rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.package-card:nth-child(2) .package-tag{
+  background:var(--butter);
+  color:var(--text);
+}
+
+.package-card:nth-child(3) .package-tag{
+  background:var(--sage);
+  color:var(--text);
+}
+
+.package-content h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2rem;
+  line-height:.95;
+  font-weight:400;
+  letter-spacing:-.03em;
+  margin-bottom:10px;
+}
+
+.price{
+  margin-bottom:12px;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.package-content p{
+  color:var(--muted);
+  line-height:1.6;
+  margin-bottom:14px;
+  font-size:.9rem;
+}
+
+.package-list{
+  list-style:none;
+  margin-bottom:18px;
+}
+
+.package-list li{
+  padding:8px 0;
+  border-top:1px solid rgba(44,37,32,.08);
+  font-size:.82rem;
+  color:var(--muted);
+}
+
+.btn{
+  display:inline-block;
+  border:none;
+  cursor:pointer;
+  border-radius:999px;
+  padding:12px 18px;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:.25s ease;
+  font-family:"DM Sans", sans-serif;
+}
+
+.btn-primary{
+  background:var(--pink);
+  color:white;
+}
+
+.btn-primary:hover{
+  background:var(--berry);
+  transform:translateY(-2px);
+}
+
+.btn-secondary{
+  border:1px solid var(--text);
+  background:transparent;
+}
+
+.btn-secondary:hover{
+  background:var(--text);
+  color:white;
+}
+
+/* INCLUDED */
+
+.included{
+  padding:85px 6%;
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.included h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(3.4rem,7vw,6.5rem);
+  line-height:.84;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+}
+
+.included-list{
+  list-style:none;
+}
+
+.included-list li{
+  padding:18px 0;
+  border-top:1px solid rgba(44,37,32,.1);
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* CTA */
+
+.cta{
+  padding:95px 6%;
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:50px;
+  align-items:center;
+  background:
+    radial-gradient(circle at top right, var(--peach) 0%, transparent 30%),
+    var(--soft-pink);
+}
+
+.cta-tag{
+  display:inline-block;
+  transform:rotate(-3deg);
+  padding:14px 18px;
+  border-radius:999px;
+  background:white;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--berry);
+  margin-bottom:28px;
+}
+
+.cta h2{
+  font-family:"DM Serif Display", serif;
+  font-size:clamp(3.5rem,7vw,6.5rem);
+  line-height:.84;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-transform:lowercase;
+  margin-bottom:22px;
+}
+
+.cta p{
+  max-width:620px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+/* MODAL */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:3000;
+}
+
+.modal-overlay.active{ display:flex; }
+
+.modal{
+  width:100%;
+  max-width:640px;
+  background:white;
+  border-radius:34px;
+  padding:34px;
+  max-height:90vh;
+  overflow-y:auto;
+}
+
+.modal-top{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:start;
+  margin-bottom:28px;
+}
+
+.modal h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2.5rem;
+  line-height:.9;
+  font-weight:400;
+}
+
+.close-modal{
+  border:none;
+  background:none;
+  font-size:2rem;
+  cursor:pointer;
+  line-height:1;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.required{
+  color:#d25c74;
+  margin-left:4px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:16px;
+  border-radius:18px;
+  border:1px solid rgba(44,37,32,.12);
+  background:#fff;
+  font-family:"DM Sans", sans-serif;
+  font-size:.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--pink);
+  box-shadow:0 0 0 3px rgba(216,132,151,.16);
+}
+
+.form-group textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.checkbox-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.checkbox-option{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px;
+  border-radius:18px;
+  border:1px solid rgba(44,37,32,.08);
+  font-size:.9rem;
+}
+
+.form-actions{
+  margin-top:24px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+/* TOAST */
+
+.success-toast{
+  position:fixed;
+  left:50%;
+  bottom:28px;
+  transform:translateX(-50%) translateY(120px);
+  z-index:4000;
+  background:white;
+  color:var(--text);
+  border:1px solid rgba(44,37,32,.1);
+  border-radius:999px;
+  padding:16px 22px;
+  box-shadow:0 18px 40px rgba(0,0,0,.16);
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:0;
+  transition:.35s ease;
+}
+
+.success-toast.active{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* FOOTER */
+
+footer{
+  padding:42px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-top:1px solid rgba(44,37,32,.08);
+}
+
+footer h3{
+  font-family:"DM Serif Display", serif;
+  font-size:2.2rem;
+  font-weight:400;
+  letter-spacing:-.03em;
+  text-transform:lowercase;
+}
+
+footer p{
+  margin-top:4px;
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--berry);
+}
+
+.socials{
+  display:flex;
+  gap:14px;
+}
+
+.socials a{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(44,37,32,.14);
+  border-radius:999px;
+  transition:.25s ease;
+}
+
+.socials a:hover{
+  background:var(--pink);
+  border-color:var(--pink);
+}
+
+.socials svg{
+  width:18px;
+  height:18px;
+  fill:var(--text);
+}
+
+.socials a:hover svg{
+  fill:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+  .desktop-nav{ display:none; }
+  .menu-toggle{ display:flex; }
+
+  .hero,
+  .included,
+  .cta{
+    grid-template-columns:1fr;
+  }
+
+  .hero-card{
+    transform:none;
+  }
+
+  .section-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .step-grid{
+    grid-template-columns:1fr;
+  }
+
+  .package-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:16px;
+    scroll-snap-type:x mandatory;
+    padding-bottom:14px;
+  }
+
+  .package-card{
+    min-width:82%;
+    scroll-snap-align:start;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+}
+
+@media(max-width:600px){
+  .site-header{ padding:16px 5%; }
+  .logo h1{ font-size:1.9rem; }
+
+  .hero,
+  .steps,
+  .packages,
+  .included,
+  .cta{
+    padding-left:5%;
+    padding-right:5%;
+  }
+
+  .hero{ padding-top:125px; }
+
+  .hero h2{
+    font-size:clamp(4rem,18vw,5.4rem);
+  }
+
+  .package-card{ min-width:88%; }
+  .package-img{ height:210px; }
+  .checkbox-grid{ grid-template-columns:1fr; }
+
+  .success-toast{
+    width:90%;
+    text-align:center;
+    border-radius:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <a href="index.html" class="logo">
+    <h1>blooms by bails</h1>
+    <span>A Theodoro Collective Brand</span>
+  </a>
+
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="story.html">Our Story</a>
+    <a href="shop.html">Shop</a>
+    <a href="bloombars.html" class="active">Bloom Bars</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="story.html">Our Story</a>
+  <a href="shop.html">Shop</a>
+  <a href="bloombars.html">Bloom Bars</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">Interactive florals</p>
+    <h2>bloom bars for modern gatherings</h2>
+    <p>
+      A floral experience where guests build their own bouquets to take home.
+      Perfect for showers, pop-ups, parties, and hosted events.
+    </p>
+  </div>
+
+  <div class="hero-card">
+    <h3>part activity, part favor</h3>
+    <p>
+      Bloom bars give your guests something to do, something to take home, and something pretty to gather around.
+    </p>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="section-header">
+    <h2>how it works</h2>
+    <p>We keep the process simple so the setup feels polished without making you manage every little detail.</p>
+  </div>
+
+  <div class="step-grid">
+    <div class="step-card">
+      <span class="step-number">01</span>
+      <h3>pick your package</h3>
+      <p>Choose the bloom bar size that fits your guest count and event style.</p>
+    </div>
+
+    <div class="step-card">
+      <span class="step-number">02</span>
+      <h3>share the vibe</h3>
+      <p>Send your palette, theme, venue details, and any inspiration you have in mind.</p>
+    </div>
+
+    <div class="step-card">
+      <span class="step-number">03</span>
+      <h3>we bring the blooms</h3>
+      <p>We prep the flowers, supplies, and styling so guests can build their own bouquets.</p>
+    </div>
+  </div>
+</section>
+
+<section class="packages">
+  <div class="section-header">
+    <h2>bloom bar packages</h2>
+    <p>Starting prices are listed to help you choose the right level. Final pricing may vary based on guest count, flower selections, and setup needs.</p>
+  </div>
+
+  <div class="package-grid">
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mini bloom bar">
+      <div class="package-content">
+        <span class="package-tag">Petite</span>
+        <h3>mini bloom bar</h3>
+        <div class="price">starting at $350</div>
+        <p>A smaller bloom bar setup for intimate gatherings and simple floral fun.</p>
+        <ul class="package-list">
+          <li>Best for up to 15 guests</li>
+          <li>Seasonal stem selection</li>
+          <li>Basic bouquet supplies included</li>
+        </ul>
+        <button class="btn btn-primary open-modal" data-package="Mini Bloom Bar" data-event="Bloom Bar">Select Package</button>
+      </div>
+    </article>
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/4503751/pexels-photo-4503751.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Signature bloom bar">
+      <div class="package-content">
+        <span class="package-tag">Signature</span>
+        <h3>signature bloom bar</h3>
+        <div class="price">starting at $650</div>
+        <p>The classic bloom bar experience for showers, parties, and hosted celebrations.</p>
+        <ul class="package-list">
+          <li>Best for up to 30 guests</li>
+          <li>Curated seasonal stem mix</li>
+          <li>Ribbon, wrapping, and signage included</li>
+        </ul>
+        <button class="btn btn-primary open-modal" data-package="Signature Bloom Bar" data-event="Bloom Bar">Select Package</button>
+      </div>
+    </article>
+
+    <article class="package-card">
+      <img class="package-img" src="https://images.pexels.com/photos/12488154/pexels-photo-12488154.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Full bloom bar">
+      <div class="package-content">
+        <span class="package-tag">Statement</span>
+        <h3>full bloom bar</h3>
+        <div class="price">starting at $950</div>
+        <p>A fuller floral experience with more blooms, styling, and guest capacity.</p>
+        <ul class="package-list">
+          <li>Best for up to 50 guests</li>
+          <li>Fuller stem selection</li>
+          <li>Styled setup and premium details included</li>
+        </ul>
+        <button class="btn btn-primary open-modal" data-package="Full Bloom Bar" data-event="Bloom Bar">Select Package</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="included">
+  <div>
+    <p class="eyebrow">What’s included</p>
+    <h2>the details are handled</h2>
+  </div>
+
+  <ul class="included-list">
+    <li>Seasonal flowers selected around your event palette and package size.</li>
+    <li>Wrapping materials, ribbon, snips, bouquet guidance, and display styling.</li>
+    <li>Optional signage and styling details depending on your selected package.</li>
+    <li>Setup support and event-specific planning after your inquiry is submitted.</li>
+  </ul>
+</section>
+
+<section class="cta">
+  <div>
+    <span class="cta-tag">Ready to gather?</span>
+  </div>
+
+  <div>
+    <h2>let’s build your bloom bar</h2>
+    <p>
+      Choose a package to start your inquiry, or send a custom request if you have a specific event setup in mind.
+    </p>
+    <button class="btn btn-primary open-modal" data-package="Custom Bloom Bar Inquiry" data-event="Bloom Bar">Start Inquiry</button>
+  </div>
+</section>
+
+<div class="modal-overlay" id="modalOverlay">
+
+  <div class="modal">
+
+    <div class="modal-top">
+      <div>
+        <p class="eyebrow">Bloom Bar Inquiry</p>
+        <h3 id="selectedPackageTitle">Package Name</h3>
+      </div>
+
+      <button class="close-modal" id="closeModal" type="button">×</button>
+    </div>
+
+    <form id="bloomBarForm">
+
+      <input type="hidden" id="selectedPackageInput" name="selected_package">
+
+      <div class="form-group">
+        <label>Event Type <span class="required">*</span></label>
+        <select id="eventTypeSelect" name="event_type" required>
+          <option value="">Select your event</option>
+          <option value="Bloom Bar">Bloom Bar</option>
+          <option value="Baby Shower">Baby Shower</option>
+          <option value="Bridal Shower">Bridal Shower</option>
+          <option value="Corporate Event">Corporate Event</option>
+          <option value="Other / Custom">Other / Custom</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Event Date <span class="required">*</span></label>
+        <input type="date" name="event_date" required>
+      </div>
+
+      <div class="form-group">
+        <label>Estimated Guest Count <span class="required">*</span></label>
+        <input type="number" name="guest_count" placeholder="Approximate guest count" required>
+      </div>
+
+      <div class="form-group">
+        <label>Bouquet Count <span class="required">*</span></label>
+        <input type="number" name="bouquet_count" placeholder="How many bouquets should guests make?" required>
+      </div>
+
+      <div class="form-group">
+        <label>Venue or Location <span class="required">*</span></label>
+        <input type="text" name="location" placeholder="Venue, city, or general location" required>
+      </div>
+
+      <div class="form-group">
+        <label>Color Palette <span class="required">*</span></label>
+        <input type="text" name="color_palette" placeholder="blush + butter yellow, colorful, earthy neutrals, etc." required>
+      </div>
+
+      <div class="form-group">
+        <label>Name <span class="required">*</span></label>
+        <input type="text" name="name" placeholder="Your name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Email <span class="required">*</span></label>
+        <input type="email" name="email" placeholder="Your email address" required>
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" name="phone" placeholder="Optional phone number">
+      </div>
+
+      <div class="form-group">
+        <label>Pinterest / Inspiration Link</label>
+        <input type="url" name="inspiration_link" placeholder="Pinterest board or inspiration link">
+      </div>
+
+      <div class="form-group">
+        <label>Additional Notes</label>
+        <textarea name="notes" placeholder="Anything else you'd like us to know?"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+        <button type="button" class="btn btn-secondary" id="keepShopping">Keep Shopping</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<div class="success-toast" id="successToast">
+  Inquiry submitted — we’ll be in touch soon.
+</div>
+
+<footer>
+  <div>
+    <h3>blooms by bails</h3>
+    <p>A Theodoro Collective Brand</p>
+  </div>
+
+  <div class="socials">
+    <a href="#" aria-label="TikTok">
+      <svg viewBox="0 0 24 24">
+        <path d="M16.75 2c.25 2.16 1.47 3.8 3.57 4.42v3.12c-1.22-.04-2.35-.38-3.4-1.04v6.33c0 3.18-2.2 5.17-5.22 5.17-2.79 0-5.02-1.95-5.02-4.72 0-2.9 2.43-4.91 5.34-4.68v3.25c-1.24-.2-2.17.38-2.17 1.38 0 .91.73 1.5 1.7 1.5 1.08 0 1.76-.58 1.76-1.98V2h3.44z"/>
+      </svg>
+    </a>
+<a href="#" aria-label="Facebook">
+  <svg viewBox="0 0 24 24">
+    <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.24-1.46 1.49-1.46H16.7V4.96c-.31-.04-1.37-.12-2.6-.12-2.57 0-4.33 1.57-4.33 4.45V11H7v3h2.77v8h3.73z"/>
+  </svg>
+</a>
+<a href="mailto:youremail@email.com" aria-label="Email">
+  <svg viewBox="0 0 24 24">
+    <path d="M2 5h20v14H2V5zm10 7L4 7v10h16V7l-8 5zm8-7H4l8 5 8-5z"/>
+  </svg>
+</a>
+    <a href="#" aria-label="Instagram">
+      <svg viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+menuToggle.addEventListener("click", () => {
+  mobileNav.classList.toggle("active");
+});
+
+const modalOverlay = document.getElementById("modalOverlay");
+const closeModal = document.getElementById("closeModal");
+const keepShopping = document.getElementById("keepShopping");
+const packageTitle = document.getElementById("selectedPackageTitle");
+const selectedPackageInput = document.getElementById("selectedPackageInput");
+const eventTypeSelect = document.getElementById("eventTypeSelect");
+const openButtons = document.querySelectorAll(".open-modal");
+const bloomBarForm = document.getElementById("bloomBarForm");
+const successToast = document.getElementById("successToast");
+
+openButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const selectedPackage = button.dataset.package;
+    const selectedEvent = button.dataset.event;
+
+    packageTitle.textContent = selectedPackage;
+    selectedPackageInput.value = selectedPackage;
+    eventTypeSelect.value = selectedEvent || "";
+
+    modalOverlay.classList.add("active");
+  });
+});
+
+closeModal.addEventListener("click", () => {
+  modalOverlay.classList.remove("active");
+});
+
+keepShopping.addEventListener("click", () => {
+  modalOverlay.classList.remove("active");
+});
+
+modalOverlay.addEventListener("click", (e) => {
+  if(e.target === modalOverlay){
+    modalOverlay.classList.remove("active");
+  }
+});
+
+bloomBarForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  bloomBarForm.reset();
+  modalOverlay.classList.remove("active");
+
+  successToast.classList.add("active");
+
+  setTimeout(() => {
+    successToast.classList.remove("active");
+  }, 4200);
+});
+</script>
+
+</body>
+</html>
